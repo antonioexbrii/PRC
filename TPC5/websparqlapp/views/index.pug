@@ -1,0 +1,39 @@
+extends layout
+
+block content
+  header.w3-container.w3-center
+    h1 SPARQL query App
+  .w3-container.w3-col.w3-half
+    form.w3-input(method='POST', action='/querydb')
+      label Repositórios localhost:7200/
+      .w3-container.w3-border
+        each repo in repos
+          label= repo.id.value+" "
+          input(type='radio' name='db' value=`${repo.id.value}`)
+          br
+      .w3-container.w3-border
+        label Query
+        br
+        textarea(id='queryInput' name='queryInput' rows='10' cols='30')   
+      button(id='subm' type='Submit') Submeter  
+  .w3-container.w3-col.w3-half
+    if lst
+      each entry in lst
+        .w3-container
+          label=`To: ${entry.db}`
+          table.w3-table
+            tr
+              th p
+              th q
+              th o
+            each oo in entry.output
+              tr
+                if oo.p
+                  td=oo.p.value
+                if oo.q
+                  td=oo.q.value
+                if oo.o
+                  td=oo.o.value
+                
+                
+        
