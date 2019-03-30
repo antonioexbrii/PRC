@@ -1,0 +1,4 @@
+dados.gov.pt/pt/datasets/freguesias-de-portugal/
+
+Freguesias de Portugal, fundir com a onto da aula (cidade)
+
